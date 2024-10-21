@@ -27,7 +27,7 @@ export const RefreshButton = () => {
   return (
     <div className={styles.container}>
       <button className={styles.refreshButton} onClick={refresh}>
-        👉 Refresh content 👈
+        Refresh Content
       </button>
     </div>
   );
