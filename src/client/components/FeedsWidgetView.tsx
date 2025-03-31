@@ -2,7 +2,7 @@ import styles from "../../../styles/FeedsWidget.module.css";
 import { Result } from "../../shared/Result";
 import { Font, Theme } from "../../shared/Theme";
 
-import { RefreshButton } from "./ToggleThemeButton";
+import { ToggleThemeButton } from "./ToggleThemeButton";
 import { FeedErrorView } from "./FeedErrorView";
 import { FeedView } from "./FeedView";
 import { ErrorResult, SuccessResult } from "../../shared/FeedResult";
@@ -19,7 +19,7 @@ const FeedsWidgetView = ({
   themeClass,
 }: FeedsWidgetViewProps) => (
   <main className={`${styles.feedsWidget} ${fontClass} ${themeClass}`}>
-    <RefreshButton />
+    <ToggleThemeButton />
 
     <ul>
       {content.map((result) =>
