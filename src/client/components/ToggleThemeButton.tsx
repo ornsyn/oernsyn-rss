@@ -7,7 +7,7 @@ import styles from "../../../styles/RefreshButton.module.css";
 const onRouteChangeStart = () => NProgress.start();
 const onRouteChangeDone = () => NProgress.done();
 
-export const RefreshButton = () => {
+export const ToggleThemeButton = () => {
   const router = useRouter();
   
   const toggleTheme = () => {
