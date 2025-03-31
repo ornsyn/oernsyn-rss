@@ -2,7 +2,7 @@ import styles from "../../../styles/FeedsWidget.module.css";
 import { Result } from "../../shared/Result";
 import { Font, Theme } from "../../shared/Theme";
 
-import { RefreshButton } from "./RefreshButton";
+import { RefreshButton } from "./ToggleThemeButton";
 import { FeedErrorView } from "./FeedErrorView";
 import { FeedView } from "./FeedView";
 import { ErrorResult, SuccessResult } from "../../shared/FeedResult";
