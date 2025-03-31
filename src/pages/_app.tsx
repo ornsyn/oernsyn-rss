@@ -5,7 +5,6 @@ import "nprogress/nprogress.css";
 import "../../styles/globals.css"; // Your global CSS file
 
 const MyApp = ({ Component, pageProps }: any) => {
-  const router = useRouter();
   const [theme, setTheme] = useState<string>("light");
 
   // Check for theme in localStorage and apply it on page load
@@ -24,7 +23,19 @@ const MyApp = ({ Component, pageProps }: any) => {
     document.body.className = theme; // Apply theme class to the body element
   }, [theme]); // Re-run when the theme state changes
 
-  return <Component {...pageProps} />;
+  // Function to toggle the theme
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme); // Store the new theme in localStorage
+  };
+
+  return (
+    <div>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+      <Component {...pageProps} />
+    </div>
+  );
 };
 
 export default MyApp;
