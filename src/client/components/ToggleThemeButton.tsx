@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import NProgress from "nprogress";
-
 import styles from "../../../styles/RefreshButton.module.css";
 
 const onRouteChangeStart = () => NProgress.start();
@@ -9,13 +8,20 @@ const onRouteChangeDone = () => NProgress.done();
 
 export const ToggleThemeButton = () => {
   const router = useRouter();
-  
+
   const toggleTheme = () => {
-    const currentQuery = new URLSearchParams(window.location.search);
-    const currentTheme = currentQuery.get("theme") === "dark" ? "dark" : "light";
+    // Check current theme from localStorage
+    const currentTheme = localStorage.getItem("theme") || "light";
     const newTheme = currentTheme === "dark" ? "light" : "dark";
-    
+
+    // Store the new theme in localStorage
+    localStorage.setItem("theme", newTheme);
+
+    // Update the URL with the new theme
+    const currentQuery = new URLSearchParams(window.location.search);
     currentQuery.set("theme", newTheme);
+    
+    // Trigger shallow routing to update the URL without reloading
     router.replace(`/?${currentQuery.toString()}`, undefined, { shallow: true });
   };
 
