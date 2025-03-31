@@ -13,8 +13,7 @@ const MyApp = ({ Component, pageProps }: any) => {
     if (storedTheme) {
       setTheme(storedTheme); // Use theme from localStorage if it exists
     } else {
-      // Default to light theme if no theme is found in localStorage
-      setTheme("light");
+      setTheme("light"); // Default to light theme if no theme is found in localStorage
     }
   }, []);
 
@@ -23,19 +22,7 @@ const MyApp = ({ Component, pageProps }: any) => {
     document.body.className = theme; // Apply theme class to the body element
   }, [theme]); // Re-run when the theme state changes
 
-  // Function to toggle the theme
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme); // Store the new theme in localStorage
-  };
-
-  return (
-    <div>
-      <button onClick={toggleTheme}>Toggle Theme</button>
-      <Component {...pageProps} />
-    </div>
-  );
+  return <Component {...pageProps} theme={theme} setTheme={setTheme} />;
 };
 
 export default MyApp;
