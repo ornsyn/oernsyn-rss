@@ -23,11 +23,9 @@ export const ToggleThemeButton = () => {
     const currentQuery = new URLSearchParams(window.location.search);
     currentQuery.set("theme", newTheme);
 
-    // Trigger shallow routing to update the URL without reloading the page
-    router.replace(`/?${currentQuery.toString()}`, undefined, { shallow: true });
-
-    // Update the body class for theme change (dynamically apply the class to body)
-    document.body.className = newTheme; // Apply the new theme class
+    // Trigger full page reload after updating the theme and URL
+    // This ensures the theme is correctly applied and reloaded
+    window.location.href = `/?${currentQuery.toString()}`;
   };
 
   // Listen for route changes to start and end NProgress
