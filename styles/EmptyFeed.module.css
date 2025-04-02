@@ -2,4 +2,16 @@
     color: var(--color-text);
     opacity: .75;
     font-size: 12px;
+    position: relative;
+}
+
+.emptyFeed::before {
+    content: "No more news last month";  /* Custom text to show in the empty feed */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;  /* Adjust text size if needed */
+    color: var(--color-text);
+    opacity: 1;
 }
